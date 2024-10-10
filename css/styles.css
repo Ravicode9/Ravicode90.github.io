@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,92 +7,141 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Header background */
     padding: 10px;
     text-align: center;
     color: white;
 }
 
 header nav h1 {
-    display: inline-block;
+    display: inline-block; /* Header title */
 }
 
 header nav ul {
-    list-style-type: none;
-    display: inline-block;
+    list-style-type: none; /* Remove bullet points from list */
+    display: inline-block; /* Align horizontally */
     padding: 0;
 }
 
 header nav ul li {
-    display: inline-block;
+    display: inline-block; /* Align menu items horizontally */
     margin-right: 15px;
 }
 
 header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 18px; /* Link font size */
 }
 
+/* Hero Section Styles */
 .hero {
-    text-align: center;
-    padding: 100px;
-    background-color: #ffffff;
+    text-align: center; /* Center align text */
+    padding: 100px; /* Top and bottom padding */
+    background-color: #ffffff; /* Hero background color */
 }
 
-.hero h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.hero-image {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
 }
 
-.hero .cta {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 10px;
+/* CTA Button Styles */
+.cta {
+    padding: 10px 20px; /* Button padding */
+    background-color: #4CAF50; /* Button background */
+    color: white; /* Button text color */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 10px; /* Space between buttons */
 }
 
-.register {
-    text-align: center;
-    margin: 50px;
+/* Login and Profile Section Styles */
+.login, .profile {
+    text-align: center; /* Center align text */
+    margin: 50px; /* Margin around section */
 }
 
-form {
-    display: inline-block;
-    text-align: left;
+.login form, .profile {
+    display: inline-block; /* Center form */
+    text-align: left; /* Align text to the left */
 }
 
-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-form input {
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.login input, .profile input {
+    padding: 10px; /* Input padding */
+    margin-bottom: 20px; /* Space between inputs */
+    width: 300px; /* Fixed width */
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 5px; /* Rounded corners */
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px; /* Button padding */
+    background-color: #4CAF50; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+/* Marketplace Styles */
+.product-list {
+    display: flex; /* Flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-around; /* Space products evenly */
+    margin: 20px; /* Margin around product list */
 }
+
+.product {
+    border: 1px solid #ccc; /* Product border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside product */
+    margin: 10px; /* Margin around product */
+    width: 30%; /* Fixed width for product cards */
+    text-align: center; /* Center align product text */
+}
+
+.product img {
+    width: 100%; /* Full width of product image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Insights Section Styles */
+.insights {
+    padding: 20px; /* Padding for insights section */
+    margin: 20px; /* Margin for insights */
+    background-color: #fff; /* Background color */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product {
+        width: 45%; /* Adjust product width for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 100%; /* Full width for mobile */
+    }
+
+    .login input, .profile input {
+        width: 80%; /* Responsive input width */
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333; /* Footer background */
+    color: white; /* Footer text color */
+    text-align: center; /* Center align footer text */
+    padding: 20px; /* Padding for footer */
+    position: relative; /* Footer position */
+    bottom: 0; /* Position at the bottom */
+    width: 100%; /* Full width */
+}
+
 
