@@ -31,7 +31,7 @@ document.getElementById('login-form')?.addEventListener('submit', function (e) {
 });
 
 // Display the username on the profile page
-window.onload = function() {
+function displayUsername() {
     const username = localStorage.getItem('username');
     if (username) {
         const usernameDisplay = document.getElementById('username-display');
@@ -41,7 +41,7 @@ window.onload = function() {
     } else {
         window.location.href = 'login.html'; // Redirect to login if not logged in
     }
-};
+}
 
 // Logout functionality
 function logout() {
@@ -95,9 +95,6 @@ function searchProducts() {
     }
 }
 
-// Call displayProducts to load initial products
-displayProducts();
-
 // Placeholder for AI Market Insights
 function loadMarketInsights() {
     const insightsSection = document.querySelector('.insights');
@@ -115,8 +112,16 @@ function loadMarketInsights() {
     }
 }
 
-// Call function to load market insights when the page loads
+// Initialize functions based on page
 window.onload = function() {
-    displayProducts(); // Ensure products are displayed when loading any page
-    loadMarketInsights(); // Load market insights if on insights page
+    const path = window.location.pathname; // Get the current page URL path
+
+    if (path.includes('login.html')) {
+        // For login page, do not load products
+    } else if (path.includes('profile.html')) {
+        displayUsername(); // Show username in profile
+    } else if (path.includes('marketplace.html')) {
+        displayProducts(); // Show products in marketplace
+        loadMarketInsights(); // Load insights if applicable
+    }
 };
