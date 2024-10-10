@@ -34,7 +34,10 @@ document.getElementById('login-form')?.addEventListener('submit', function (e) {
 window.onload = function() {
     const username = localStorage.getItem('username');
     if (username) {
-        document.getElementById('username-display').textContent = username;
+        const usernameDisplay = document.getElementById('username-display');
+        if (usernameDisplay) {
+            usernameDisplay.textContent = username;
+        }
     } else {
         window.location.href = 'login.html'; // Redirect to login if not logged in
     }
@@ -49,19 +52,21 @@ function logout() {
 // Display products on the marketplace
 function displayProducts() {
     const productList = document.querySelector('.product-list');
-    productList.innerHTML = ''; // Clear existing products
+    if (productList) {
+        productList.innerHTML = ''; // Clear existing products
 
-    products.forEach(product => {
-        const productCard = `
-            <div class="product">
-                <img src="${product.img}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.price}</p>
-                <button>Add to Cart</button>
-            </div>
-        `;
-        productList.innerHTML += productCard; // Append product card
-    });
+        products.forEach(product => {
+            const productCard = `
+                <div class="product">
+                    <img src="${product.img}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.price}</p>
+                    <button>Add to Cart</button>
+                </div>
+            `;
+            productList.innerHTML += productCard; // Append product card
+        });
+    }
 }
 
 // Search function for products
@@ -73,19 +78,21 @@ function searchProducts() {
 
     // Display filtered products
     const productList = document.querySelector('.product-list');
-    productList.innerHTML = ''; // Clear existing products
+    if (productList) {
+        productList.innerHTML = ''; // Clear existing products
 
-    filteredProducts.forEach(product => {
-        const productCard = `
-            <div class="product">
-                <img src="${product.img}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.price}</p>
-                <button>Add to Cart</button>
-            </div>
-        `;
-        productList.innerHTML += productCard; // Append product card
-    });
+        filteredProducts.forEach(product => {
+            const productCard = `
+                <div class="product">
+                    <img src="${product.img}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.price}</p>
+                    <button>Add to Cart</button>
+                </div>
+            `;
+            productList.innerHTML += productCard; // Append product card
+        });
+    }
 }
 
 // Call displayProducts to load initial products
@@ -94,19 +101,22 @@ displayProducts();
 // Placeholder for AI Market Insights
 function loadMarketInsights() {
     const insightsSection = document.querySelector('.insights');
-    insightsSection.innerHTML = '<p>Loading market insights...</p>';
+    if (insightsSection) {
+        insightsSection.innerHTML = '<p>Loading market insights...</p>';
 
-    // Simulate fetching market insights
-    setTimeout(() => {
-        insightsSection.innerHTML = `
-            <h3>Market Trends</h3>
-            <p>Current wheat price trends indicate a stable market.</p>
-            <p>Expected demand for rice is projected to increase by 15% this quarter.</p>
-        `;
-    }, 2000);
+        // Simulate fetching market insights
+        setTimeout(() => {
+            insightsSection.innerHTML = `
+                <h3>Market Trends</h3>
+                <p>Current wheat price trends indicate a stable market.</p>
+                <p>Expected demand for rice is projected to increase by 15% this quarter.</p>
+            `;
+        }, 2000);
+    }
 }
 
-// Call function to load market insights
-loadMarketInsights();
-
-
+// Call function to load market insights when the page loads
+window.onload = function() {
+    displayProducts(); // Ensure products are displayed when loading any page
+    loadMarketInsights(); // Load market insights if on insights page
+};
